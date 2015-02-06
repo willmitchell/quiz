@@ -1,3 +1,5 @@
+package org.quiz;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -5,7 +7,7 @@ import java.util.Optional;
 import java.util.Queue;
 
 /**
- * The TrinaryNode class handles the bulk of the logic for managing a tree with between [0..3] children.
+ * The org.quiz.TrinaryNode class handles the bulk of the logic for managing a tree with between [0..3] children.
  * <p>
  * The class is generic, so it can support any kind of Comparable node value.
  * <p>

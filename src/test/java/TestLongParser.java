@@ -1,15 +1,15 @@
 
 import com.google.common.base.Stopwatch;
+import org.quiz.LongParser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import junit.framework.TestCase;
 
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
-import java.util.function.LongUnaryOperator;
 
 /**
- * Test the LongParser implementation.
+ * Test the org.quiz.LongParser implementation.
  * <p>
  * Will Mitchell
  * 2015
@@ -73,14 +73,14 @@ public class TestLongParser extends TestCase {
         long duration1ms = stopwatch1.elapsed(TimeUnit.MILLISECONDS);
         log.info("Baseline time: " + stopwatch1.toString());
 
-        // Test the LongParser and compare.  NOTE that we create new Stopwatches and Random generators.
+        // Test the org.quiz.LongParser and compare.  NOTE that we create new Stopwatches and Random generators.
         Stopwatch stopwatch2 = Stopwatch.createStarted();
         r = new Random(37l);
         r.longs(count, Long.MIN_VALUE, Long.MAX_VALUE).forEach(value -> {
             LongParser.stringToLong(Long.toString(value));
         });
         long duration2ms = stopwatch2.elapsed(TimeUnit.MILLISECONDS);
-        log.info("LongParser time: " + stopwatch2.toString());
+        log.info("org.quiz.LongParser time: " + stopwatch2.toString());
         log.info("Performance factor: " + (double) duration2ms / duration1ms);
     }
 

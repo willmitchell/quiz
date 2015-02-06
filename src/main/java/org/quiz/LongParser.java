@@ -1,3 +1,5 @@
+package org.quiz;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -18,9 +20,9 @@ public class LongParser {
     final static Pattern p = Pattern.compile(regex, Pattern.CASE_INSENSITIVE);
 
     /**
-     * Parse a string and return a long.  Supports base 10 (default), hexadecimal, and octal notation.
+     * Parse a string and return a long.  Supports base 10 (decimal), base 16 (hexadecimal), and base 8 (octal).
      *
-     * @param s a string that conforms to
+     * @param s a string that conforms to the conventional notation for each base
      * @return
      */
     public static long stringToLong(String s) {
@@ -29,11 +31,11 @@ public class LongParser {
         }
 
         /**
-         * By far the most expensive part of this implementation.  If there was a hard performance requirement,
-         * this aspect of the implementation could be revisited.
+         * By far the most expensive part of this implementation.  In the absence of a hard performance requirement,
+         * I opted for code quality and maintainability over raw performance.
          *
-         * Note: the problem assignment said that I could not use the existing "stringToLong" functionality,
-         * so I do believe that this implementation meets the spec.
+         * Note: the problem assignment said that I could not use existing "stringToLong" functionality.
+         * This implementation conforms to that specification.
          */
         final Matcher m = p.matcher(s);
 

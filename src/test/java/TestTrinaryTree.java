@@ -1,11 +1,12 @@
 import junit.framework.TestCase;
+import org.quiz.TrinaryTree;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 
 /**
- * Test the TrinaryTree implementation using the provided data.
+ * Test the org.quiz.TrinaryTree implementation using the provided data.
  *
  * Will Mitchell
  * 2015

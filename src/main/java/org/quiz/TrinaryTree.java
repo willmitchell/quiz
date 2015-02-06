@@ -1,8 +1,9 @@
+package org.quiz;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.*;
-import java.util.function.Function;
 
 /**
  * A Tri-nary tree.  It is like a Trie, only it has between 0..3 children per node.
@@ -23,7 +24,7 @@ public class TrinaryTree<T extends Comparable<T>> {
      *
      * @param val a single element such as an Integer
      */
-    void insert(T val) {
+    public void insert(T val) {
         if (root != null) {
             root.add(val);
         } else {
@@ -36,7 +37,7 @@ public class TrinaryTree<T extends Comparable<T>> {
      *
      * @return true if the value exists in the tree
      */
-    boolean search(ArrayList<T> word) {
+    public boolean search(ArrayList<T> word) {
         if (root == null || word == null) {
             return false;
         }
@@ -63,7 +64,7 @@ public class TrinaryTree<T extends Comparable<T>> {
      * @param word the search target
      * @return true if the node was found and deleted.
      */
-    boolean delete(ArrayList<T> word) {
+    public boolean delete(ArrayList<T> word) {
         if (root == null || word == null) {
             return false;
         }
@@ -85,7 +86,7 @@ public class TrinaryTree<T extends Comparable<T>> {
     /**
      * Dump the contents of the tree to the logger
      */
-    void print() {
+    public void print() {
         if (root != null) {
             log.info("Tree dump:" + root);
         } else {
