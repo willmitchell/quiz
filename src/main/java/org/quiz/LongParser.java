@@ -8,6 +8,9 @@ import java.util.regex.Pattern;
  * Parse a String into a long.
  * <p>
  * Currently uses a regex pattern to enable support for base 10 (decimal), 16 (hexadecimal), and 8 (octal).
+ *
+ * Will Mitchell
+ * 2015
  */
 public class LongParser {
 
