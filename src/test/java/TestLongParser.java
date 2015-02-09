@@ -43,8 +43,10 @@ public class TestLongParser extends TestCase {
         log.info("inputString = " + inputString);
         boolean failed = false;
         try {
-            LongParser.stringToLong(inputString);
+            long out = LongParser.stringToLong(inputString);
+            log.info("wow, did not throw.  output = " + out);
         } catch (NumberFormatException e) {
+            log.info(e.getMessage());
             failed = true;
         }
         assert failed;
@@ -56,6 +58,8 @@ public class TestLongParser extends TestCase {
         parseAndExpectFail("-0xabcdefg");
         parseAndExpectFail("2s");
         parseAndExpectFail(" 3x ");
+        parseAndExpectFail(new Long(Long.MAX_VALUE).toString() + "1");
+        parseAndExpectFail(new Long(Long.MIN_VALUE).toString() + "1");
         parseAndExpectFail(null);
     }
 

@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
  * Parse a String into a long.
  * <p>
  * Currently uses a regex pattern to enable support for base 10 (decimal), 16 (hexadecimal), and 8 (octal).
- *
+ * <p>
  * Will Mitchell
  * 2015
  */
@@ -78,12 +78,17 @@ public class LongParser {
             }
 
             // Accumulate using negative arithmetic because abs(Long.MIN_VALUE) > Long.MIN_VALUE
+            long temp = accumulator;
             accumulator = radix * accumulator - digit;
 
-        }
+            if (accumulator >= temp) {
+                // Number has wrapped around.  Overflow.
+                throw new NumberFormatException("Number is too large to fit in a long.");
+            }
 
+        }
         // Flip negative numbers back to positive if necessary
         return negative ? accumulator : -accumulator;
-    }
 
+    }
 }
